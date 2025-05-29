@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Support Chatbot</title>
+  <style>
+    :root {
+      --accent: #8e24aa;
+      --user: #009966;
+      --bot: #ededf7;
+      --header-bg: #8e24aa;
+      --header-fg: #fff;
+      --container-bg: #fff;
+      --container-border: #e2d9f7;
+      --input-bg: #fff;
+      --input-border: #e2d9f7;
+      --input-focus: #8e24aa;
+      --send-bg: #8e24aa;
+      --send-hover: #6d1b7b;
+      --body-bg: #f6f7fb;
+      --bot-bubble: #ededf7;
+      --bot-color: #222;
+      --user-bubble: #009966;
+      --user-color: #fff;
+    }
+    body[data-theme='dark'] {
+      --accent: #b388ff;
+      --user: #26c485;
+      --bot: #2d2d3a;
+      --header-bg: #2d2d3a;
+      --header-fg: #fff;
+      --container-bg: #232336;
+      --container-border: #3a3a4d;
+      --input-bg: #232336;
+      --input-border: #3a3a4d;
+      --input-focus: #b388ff;
+      --send-bg: #b388ff;
+      --send-hover: #8e24aa;
+      --body-bg: #181825;
+      --bot-bubble: #2d2d3a;
+      --bot-color: #eee;
+      --user-bubble: #26c485;
+      --user-color: #fff;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--body-bg);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      transition: background 0.3s;
+    }
+    .chat-container {
+      margin-top: 48px;
+      background: var(--container-bg);
+      border-radius: 18px;
+      box-shadow: 0 6px 32px rgba(80,0,180,0.10);
+      width: 410px;
+      max-width: 98vw;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1.5px solid var(--container-border);
+      transition: background 0.3s, border 0.3s;
+    }
+    .chat-header {
+      background: var(--header-bg);
+      color: var(--header-fg);
+      padding: 18px 22px 14px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .chat-header .bot-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: bold;
+      border: 2px solid var(--container-border);
+    }
+    .chat-header .bot-title {
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .chat-header .bot-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--container-border);
+      margin-left: 4px;
+    }
+    .theme-toggle {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--header-fg);
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0 4px;
+      transition: color 0.3s;
+    }
+    #chatbox {
+      flex: 1;
+      height: 400px;
+      background: var(--container-bg);
+      padding: 20px 16px 12px 16px;
+      overflow-y: auto;
+      font-size: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: background 0.3s;
+    }
+    .msg-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    .msg-bot {
+      justify-content: flex-start;
+    }
+    .msg-user {
+      justify-content: flex-end;
+    }
+    .msg-bubble {
+      max-width: 75%;
+      padding: 10px 16px;
+      border-radius: 16px;
+      font-size: 15px;
+      line-height: 1.5;
+      box-shadow: 0 1px 4px rgba(44,62,80,0.06);
+      transition: background 0.3s, color 0.3s;
+    }
+    .msg-bot .msg-bubble {
+      background: var(--bot-bubble);
+      color: var(--bot-color);
+      border-bottom-left-radius: 4px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+    .msg-user .msg-bubble {
+      background: var(--user-bubble);
+      color: var(--user-color);
+      border-bottom-right-radius: 4px;
+      border-top-right-radius: 4px;
+      border-top-left-radius: 16px;
+      border-bottom-left-radius: 16px;
+    }
+    .bot-avatar-sm {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: bold;
+      border: 1.5px solid var(--container-border);
+    }
+    .input-row {
+      display: flex;
+      padding: 16px 16px 16px 16px;
+      background: var(--container-bg);
+      border-top: 1.5px solid var(--container-border);
+      gap: 10px;
+      transition: background 0.3s, border 0.3s;
+    }
+    #userInput {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1.5px solid var(--input-border);
+      font-size: 15px;
+      outline: none;
+      transition: border 0.2s, background 0.3s;
+      background: var(--input-bg);
+      color: var(--bot-color);
+    }
+    #userInput:focus {
+      border: 1.5px solid var(--input-focus);
+    }
+    #sendBtn {
+      width: 74px;
+      padding: 10px 0;
+      border-radius: 8px;
+      border: none;
+      background: var(--send-bg);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(44,62,80,0.08);
+      transition: background 0.2s;
+    }
+    #sendBtn:hover {
+      background: var(--send-hover);
+    }
+    @media (max-width: 500px) {
+      .chat-container {
+        width: 99vw;
+        min-width: 0;
+      }
+      #chatbox {
+        height: 60vw;
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="bot-avatar">🤖</div>
+      <span class="bot-title">Support Bot</span>
+      <span class="bot-sub">&nbsp;• Online</span>
+      <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">🌙</button>
+    </div>
+    <div id="chatbox"></div>
+    <div class="input-row">
+      <input type="text" id="userInput" placeholder="Type your message..." autocomplete="off" />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+  <script>
+    const chatbox = document.getElementById('chatbox');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const themeToggle = document.getElementById('themeToggle');
+
+    // Theme toggle logic
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+      themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+      localStorage.setItem('chatbot-theme', theme);
+    }
+    // Load theme from localStorage or default to light
+    const savedTheme = localStorage.getItem('chatbot-theme') || 'light';
+    setTheme(savedTheme);
+    themeToggle.onclick = () => {
+      setTheme(document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    };
+
+    function addMessage(message, sender) {
+      const row = document.createElement('div');
+      row.className = 'msg-row msg-' + sender;
+      if(sender === 'bot') {
+        row.innerHTML = `<div class="bot-avatar-sm">🤖</div><div class="msg-bubble">${message}</div>`;
+      } else {
+        row.innerHTML = `<div class="msg-bubble">${message}</div>`;
+      }
+      chatbox.appendChild(row);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    sendBtn.onclick = async function() {
+      const message = userInput.value;
+      if (!message.trim()) return;
+      addMessage(message, 'user');
+      userInput.value = '';
+      const res = await fetch('/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message})
+      });
+      const data = await res.json();
+      addMessage(data.response, 'bot');
+    };
+    userInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') sendBtn.onclick();
+    });
+  </script>
+</body>
+</html>
