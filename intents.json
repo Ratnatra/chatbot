@@ -1,0 +1,93 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day", "Namaste", "Hey there", "What's up", "Greetings", "Good morning", "Good evening", "Good afternoon", "नमस्ते", "सुप्रभात", "शुभ संध्या", "नमस्कार", "सलाम", "आदाब"],
+         "responses": ["Hello", "Good to see you again", "Hi there, how can I help?", "Namaste! How can I assist you today?", "नमस्ते! मैं आपकी कैसे मदद कर सकता हूँ?"],
+         "context": [""]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time", "See you", "Catch you later", "Talk to you soon", "Farewell", "Good night", "अलविदा", "फिर मिलेंगे", "शुभ रात्रि", "विदा", "चलता हूँ"],
+         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon.", "Goodbye!", "अलविदा! फिर मिलेंगे!"],
+         "context": [""]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me", "Thank you so much", "I appreciate it", "Much appreciated", "Thanks a lot", "Thank you very much", "धन्यवाद", "शुक्रिया", "बहुत धन्यवाद", "आपका धन्यवाद", "आपका शुक्रिया"],
+         "responses": ["My pleasure", "You're Welcome", "Glad I could help!", "Anytime!", "कोई बात नहीं, आपकी मदद करके अच्छा लगा!"],
+         "context": [""]
+        },
+        {"tag": "no",
+         "patterns": ["No", "Nope", "Not at all", "I don't think so", "Nah", "No way", "Never", "Not interested", "मुझे नहीं चाहिए", "नहीं चाहिए", "नहीं", "नहीं, धन्यवाद", "नहीं, मुझे नहीं चाहिए"],
+         "responses": ["Okay, let me know if you change your mind.", "Alright, I'm here if you need anything.", "Understood, just type if you need help.", "ठीक है, अगर आपको ज़रूरत हो तो बताइए!"],
+         "context": [""]
+        },
+        {"tag": "yes",
+         "patterns": ["Yes", "Sure", "Absolutely", "Of course", "Definitely", "Yes, please", "Yes, I would like that", "Sure thing", "Yes, I agree", "हाँ", "बिल्कुल", "जरूर", "बिलकुल सही है", "हाँ, मुझे चाहिए"],
+         "responses": ["Great! How can I assist you?", "Awesome! What do you need help with?", "Sure! I'm here to help.", "बिल्कुल! मैं आपकी कैसे मदद कर सकता हूँ?"],
+         "context": [""]
+        },
+        {"tag": "help",
+         "patterns": ["Help", "I need help", "Can you assist me?", "I need assistance", "Can you help me?", "मदद चाहिए", "मुझे मदद चाहिए", "मुझे सहायता चाहिए", "मुझे सहायता चाहिए", "मुझे कुछ मदद चाहिए", "मुझे कुछ सहायता चाहिए", "कृपया मदद करें", "कृपया सहायता करें"],
+         "responses": ["Sure! What do you need help with?", "I'm here to assist you, what do you need?", "How can I help you today?", "मैं आपकी कैसे मदद कर सकता हूँ?", "आपको किस चीज़ में मदद चाहिए?"],
+         "context": [""]
+        },
+        {"tag": "thanks_for_help",
+         "patterns": ["Thanks for your help", "I appreciate your assistance", "Thank you for helping me", "Thanks for the support", "Thank you for your help", "आपकी मदद के लिए धन्यवाद", "आपकी सहायता के लिए धन्यवाद", "मदद के लिए धन्यवाद", "आपकी सहायता के लिए बहुत धन्यवाद"],
+         "responses": ["You're welcome! I'm glad I could help.", "Anytime! I'm here to assist you.", "No problem, happy to help!", "कोई बात नहीं, आपकी मदद करके अच्छा लगा!", "आपका स्वागत है!"],
+         "context": [""]
+        },
+        {"tag": "joke",
+         "patterns": ["Tell me a joke", "Make me laugh", "I need a joke", "Do you know any jokes?", "Can you tell me a joke?", "मुझे एक मजेदार बात बताओ", "मजाक करो", "एक चुटकुला सुनाओ", "मजेदार बात बताओ"],
+         "responses": ["Why don't scientists trust atoms? Because they make up everything!", "Why did the scarecrow win an award? Because he was outstanding in his field!", "What do you call fake spaghetti? An impasta!", "मैं एक बोट हूँ, लेकिन मैं मजेदार बातें कर सकता हूँ!"],
+         "context": [""]
+        },
+        {"tag": "weather",
+         "patterns": ["What's the weather like?", "Tell me the weather", "How's the weather today?", "Weather forecast", "मौसम कैसा है?", "आज का मौसम कैसा है?", "मौसम की जानकारी दो", "मौसम का हाल बताओ"],
+         "responses": ["I'm not able to check the weather right now, but you can use a weather app or website.", "Sorry, I can't provide real-time weather updates.", "I can't check the weather, but you can look it up online.", "मुझे मौसम की जानकारी नहीं है, लेकिन आप ऑनलाइन देख सकते हैं."],
+         "context": [""]
+        },
+        {"tag": "news",
+         "patterns": ["What's the latest news?", "Tell me the news", "Current events", "Latest updates", "समाचार क्या है?", "ताज़ा खबरें बताओ", "आज की खबरें", "नवीनतम समाचार"],
+         "responses": ["I'm unable to provide real-time news updates, but you can check a news website or app.", "Sorry, I can't fetch the latest news right now.", "I can't provide current news, but you can look it up online.", "मुझे नवीनतम समाचार नहीं पता, लेकिन आप ऑनलाइन देख सकते हैं."],
+         "context": [""]
+        },
+        {"tag": "search",
+         "patterns": ["Search for something", "Look up information", "Find details about", "Search the web", "मुझे कुछ खोजो", "जानकारी खोजो", "खोजें", "खोजें कुछ"],
+         "responses": ["I can't browse the internet, but you can use a search engine like Google.", "Sorry, I can't perform web searches.", "You can search for information online using a search engine.", "मुझे इंटरनेट पर खोजने की क्षमता नहीं है, लेकिन आप गूगल कर सकते हैं."],
+         "context": [""]
+        },
+        {"tag": "feedback",
+         "patterns": ["Give feedback", "I have feedback", "Feedback on your service", "I want to give feedback", "मुझे फीडबैक देना है", "मैं फीडबैक देना चाहता हूँ", "आपकी सेवा पर फीडबैक", "आपकी सेवा के बारे में फीडबैक"],
+         "responses": ["Thank you for your feedback! It helps us improve.", "We appreciate your feedback!", "Your feedback is valuable to us.", "आपके फीडबैक के लिए धन्यवाद! यह हमें सुधारने में मदद करता है."],
+         "context": [""]
+        },
+        {"tag": "complaint",
+         "patterns": ["I have a complaint", "Make a complaint", "Complaint about your service", "I want to complain", "मुझे शिकायत है", "मैं शिकायत करना चाहता हूँ", "आपकी सेवा पर शिकायत", "आपकी सेवा के बारे में शिकायत"],
+         "responses": ["I'm sorry to hear that. Please tell me more about your complaint.", "We apologize for any inconvenience. How can we resolve this?", "Your complaint is important to us. Please provide details.", "मुझे खेद है कि आपको परेशानी हुई। कृपया अपनी शिकायत बताएं."],
+         "context": [""]
+        },
+        {"tag": "suggestion",
+         "patterns": ["Give me a suggestion", "Suggest something", "Can you suggest?", "Mujhe ek suggestion do", "Kuch sujhao do", "कोई सुझाव दो", "मुझे सुझाव चाहिए"],
+         "responses": ["Sure! Always keep learning and stay positive.", "My suggestion: Never stop asking questions!", "सुझाव: हमेशा सीखते रहो और खुश रहो!"],
+         "context": [""]
+        },
+        {"tag": "help",
+         "patterns": ["I need help", "Can you help me?", "Help me", "Mujhe help chahiye", "Mujhe ek help chahiye tumhari", "मुझे मदद चाहिए", "मदद करो"],
+         "responses": ["Of course! Please tell me how I can help you.", "I'm here to help. What do you need?", "मैं आपकी मदद के लिए यहाँ हूँ, बताइए क्या चाहिए?"],
+         "context": [""]
+        },
+        {"tag": "joke",
+         "patterns": ["Tell me a joke", "Joke", "Make me laugh", "Tell a funny joke", "Tell a joke", "Koi joke sunao", "मुझे एक जोक सुनाओ", "मजेदार जोक सुनाओ"],
+         "responses": ["Why did the computer go to the doctor? Because it had a virus!", "Why don't scientists trust atoms? Because they make up everything!", "टीचर: इतने दिन कहां थे? छात्र: घर पर WIFI नहीं था!"],
+         "context": [""]
+        },
+        {"tag": "quote",
+         "patterns": ["Give me a quote", "Inspire me", "Motivational quote", "Quote of the day", "मुझे एक उद्धरण दो", "प्रेरणादायक उद्धरण दो", "मुझे प्रेरित करो", "आज का उद्धरण"],
+         "responses": ["Believe you can and you're halfway there.", "The only way to do great work is to love what you do.", "सपने वो नहीं जो हम सोते वक्त देखते हैं, सपने वो हैं जो हमें सोने नहीं देते!"],
+         "context": [""]
+        },
+        {"tag": "fun_fact",
+         "patterns": ["Tell me a fun fact", "Fun fact", "Interesting fact", "Did you know?", "मुझे एक मजेदार तथ्य बताओ", "मजेदार तथ्य बताओ", "दिलचस्प तथ्य बताओ", "क्या आप जानते हैं?"],
+         "responses": ["Did you know honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3000 years old and still edible!", "Bananas are berries, but strawberries aren't! Isn't that interesting?", "क्या आप जानते हैं कि एक बोट को भी मजेदार बातें पसंद होती हैं?"],
+         "context": [""]
+        }
+    ]
+}
